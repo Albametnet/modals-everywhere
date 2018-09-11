@@ -49,10 +49,10 @@ body {
   border-radius: 20px;
   font-size: 20px;
   line-height: 20px;
-  background: #ffcc00;
+  background: pink;
   transition: background ease .5s; }
   .button:hover {
-    background: #ffb300; }
+    background: #ff6aaf; }
 
 .modal {
   position: fixed;
@@ -88,7 +88,7 @@ body {
   top: 50%;
   transform: translateY(-50%);
   border: 0;
-  background: #ff4d00;
+  background: #8a0a4f;
   padding: 10px 20px;
   color: #fff;
   font-size: inherit;
