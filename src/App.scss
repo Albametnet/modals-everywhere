@@ -4,7 +4,8 @@
   margin: 2em auto;
   background: #ffff;
   padding: 2em;
-  font-size: 1.5em; }
+  font-size: 1.5em;
+}
 
 .c-btn {
   padding: .1em .5em;
@@ -14,12 +15,17 @@
   border-radius: 1em;
   cursor: pointer;
   transition: background .15s ease-out;
-  font-size: 1.3em; }
-  .c-btn:hover {
-    background: #cbddfb; }
-  .c-btn:focus {
+  font-size: 1.3em;
+
+  &:hover {
+    background: #cbddfb;
+  }
+
+  &:focus {
     outline: 0;
-    box-shadow: 0 0 4px currentColor; }
+    box-shadow: 0 0 4px currentColor;
+  }
+}
 
 .c-modal-cover {
   position: fixed;
@@ -27,9 +33,10 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 10;
+  z-index: 10; // This must be at a higher index to the rest of your page content
   transform: translateZ(0);
-  background-color: rgba(0, 0, 0, 0.15); }
+  background-color: rgba(#000, 0.15);
+}
 
 .c-modal {
   position: fixed;
@@ -41,15 +48,17 @@
   background-color: #FFFFFF;
   box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch; }
+  -webkit-overflow-scrolling: touch;
+
   @media screen and (min-width: 500px) {
-    .c-modal {
-      left: 50%;
-      top: 50%;
-      height: auto;
-      transform: translate(-50%, -50%);
-      max-width: 30em;
-      max-height: calc(100% - 1em); } }
+    left: 50%;
+    top: 50%;
+    height: auto;
+    transform: translate(-50%, -50%);
+    max-width: 30em;
+    max-height: calc(100% - 1em);
+  }
+}
 
 .c-modal__close {
   position: absolute;
@@ -60,7 +69,8 @@
   background: #f6f6f7;
   border: 0;
   box-shadow: 0;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .c-modal__close-icon {
   width: 25px;
@@ -68,10 +78,12 @@
   fill: transparent;
   stroke: black;
   stroke-linecap: round;
-  stroke-width: 2; }
+  stroke-width: 2;
+}
 
 .c-modal__body {
-  padding-top: .25em; }
+  padding-top: .25em;
+}
 
 .u-hide-visually {
   border: 0 !important;
@@ -82,4 +94,5 @@
   padding: 0 !important;
   position: absolute !important;
   width: 1px !important;
-  white-space: nowrap !important; }
+  white-space: nowrap !important;
+}
