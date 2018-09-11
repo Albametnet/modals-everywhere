@@ -1,5 +1,5 @@
 import React from 'react';
 
-const ModalTrigger = ({text}) => <button className="c-btn">{text}</button>;
+const ModalTrigger = ({onOpen,text}) => <button className="c-btn" onClick={onOpen}>{text}</button>;
 
 export default ModalTrigger;
