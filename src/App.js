@@ -1,22 +1,46 @@
-import React, { Component } from 'react';
-import Modal from './components/Modal';
-
-import './App.css';
-
+import React, { Component, Fragment} from 'react';
+import {Link, Switch, Route} from 'react-router-dom';
+import PageIndex from './components/PageIndex';
+import PageModal from './components/PageModal';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      modalIsOpen: false
+    }
+  }
+
+  onOpen = () => {
+    this.setState({modalIsOpen: true});
+  }
+
+  onClose = () => {
+    this.setState({modalIsOpen: false})
+  }
+
   render() {
-    const modalProps = {
-      triggerText: 'This is a button to trigger the Modal'    
-    };
-   
+    const {modalIsOpen} = this.state;
     return (
-      <main className="content">
-       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam eius sint a expedita inventore veniam, magni quo libero cum perferendis culpa repellat labore quia iusto assumenda optio, repellendus id porro?</p>
-       <p><Modal {...modalProps} /></p>
-       <p>In esse soluta aspernatur repellat dolor explicabo eaque qui eos necessitatibus. Voluptas, libero! Necessitatibus culpa, molestiae nostrum vel quis doloremque nesciunt amet. Cum quaerat deserunt deleniti fugiat dignissimos unde libero!</p>
-       <p>Quos cupiditate explicabo corrupti accusamus quasi natus sapiente officiis molestias dolorem ipsam aliquam quo, dignissimos tempore nemo adipisci? Doloribus eaque cumque amet sequi impedit sed labore dignissimos corrupti possimus voluptatibus.</p>
-      </main>
+      <Fragment>
+        <header className="page__header">
+          <nav className="nav">
+            <ul className="menu">
+              <li className="menu__item">
+                <Link to="/" className="menu__link">Index</Link>
+              </li>
+              <li className="menu__item">
+                <Link to="/modal-sample" className="menu__link">Modales</Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <Switch>
+          <Route exact path="/" render={()=><PageIndex />} />
+          <Route path="/modal-sample" render={()=><PageModal modalStatus={modalIsOpen} onOpen={this.onOpen} onClose={this.onClose} />} />
+        </Switch>
+      </Fragment>
     );
   }
 }
